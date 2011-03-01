@@ -781,7 +781,7 @@ The variable ruby-indent-level controls the amount of indentation.
         (forward-word -1)               ; skip back a keyword
         (setq begin (point))
         (cond
-         ((looking-at "do\\>[^_]")      ; iter block is a special case
+         ((looking-at "do\\>[^_]\\|if\\>[^_]\\|unless\\>[^_]\\|case\\>[^_]\\|begin\\>[^_]") ; iter block is a special case
           (if (nth 3 state) (goto-char (nth 3 state))
             (goto-char parse-start) (back-to-indentation))
           (setq indent (ruby-indent-size (current-column) (nth 2 state))))
